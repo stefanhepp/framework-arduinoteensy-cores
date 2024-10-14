@@ -813,14 +813,14 @@ let me know?  http://forum.pjrc.com/forums/4-Suggestions-amp-Bug-Reports
 
 #elif defined(USB_MIDI_AUDIO_SERIAL_KEYBOARD)
   #define VENDOR_ID		0x16C0
-  #define PRODUCT_ID		0x048A
+  #define PRODUCT_ID		0x048D
   #define MANUFACTURER_NAME	{'T','e','e','n','s','y','d','u','i','n','o'}
   #define MANUFACTURER_NAME_LEN	11
   #define PRODUCT_NAME		{'T','e','e','n','s','y',' ','M','I','D','I','/','A','u','d','i','o'}
   #define PRODUCT_NAME_LEN	17
   #define EP0_SIZE		64
-  #define NUM_ENDPOINTS         8
-  #define NUM_INTERFACE		8
+  #define NUM_ENDPOINTS         7
+  #define NUM_INTERFACE		7
   #define CDC_IAD_DESCRIPTOR	1
   #define CDC_STATUS_INTERFACE	0
   #define CDC_DATA_INTERFACE	1	// Serial
@@ -846,21 +846,23 @@ let me know?  http://forum.pjrc.com/forums/4-Suggestions-amp-Bug-Reports
   #define AUDIO_RX_ENDPOINT     5
   #define AUDIO_RX_SIZE         180
   #define AUDIO_SYNC_ENDPOINT	6
-  #define KEYBOARD_INTERFACE    4	// Keyboard
+  #define KEYBOARD_INTERFACE    6	// Keyboard
   #define KEYBOARD_ENDPOINT     7
   #define KEYBOARD_SIZE         8
   #define KEYBOARD_INTERVAL     1
-  #define KEYMEDIA_INTERFACE    5	// Keyboard Media Keys
+/* Media keys seem to be too many USB interfaces or endpoints? Teensy hangs if enabled
+  #define KEYMEDIA_INTERFACE    7	// Keyboard Media Keys
   #define KEYMEDIA_ENDPOINT     8
   #define KEYMEDIA_SIZE         8
   #define KEYMEDIA_INTERVAL     4
+*/
   #define ENDPOINT2_CONFIG	ENDPOINT_RECEIVE_UNUSED + ENDPOINT_TRANSMIT_INTERRUPT
   #define ENDPOINT3_CONFIG	ENDPOINT_RECEIVE_BULK + ENDPOINT_TRANSMIT_BULK
   #define ENDPOINT4_CONFIG	ENDPOINT_RECEIVE_BULK + ENDPOINT_TRANSMIT_BULK
   #define ENDPOINT5_CONFIG	ENDPOINT_RECEIVE_ISOCHRONOUS + ENDPOINT_TRANSMIT_ISOCHRONOUS
   #define ENDPOINT6_CONFIG	ENDPOINT_RECEIVE_UNUSED + ENDPOINT_TRANSMIT_ISOCHRONOUS
   #define ENDPOINT7_CONFIG	ENDPOINT_RECEIVE_UNUSED + ENDPOINT_TRANSMIT_INTERRUPT
-  #define ENDPOINT8_CONFIG	ENDPOINT_RECEIVE_UNUSED + ENDPOINT_TRANSMIT_INTERRUPT
+//  #define ENDPOINT8_CONFIG	ENDPOINT_RECEIVE_UNUSED + ENDPOINT_TRANSMIT_INTERRUPT
 
 #elif defined(USB_MIDI16_AUDIO_SERIAL)
   #define VENDOR_ID		0x16C0
